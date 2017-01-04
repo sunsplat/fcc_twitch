@@ -1,9 +1,8 @@
 $(document).ready(function(){
   var usernames = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "noobs2ninjas", "RobotCaleb", "brunofin", "comster404"];
-  for(var i = 0; i < usernames.length; i++){
-    var user = usernames[i];
-
-    $.getJSON('https://wind-bow.hyperdev.space/twitch-api/streams/'+usernames[i]+'?callback=?', function(data) {
+  for (var i = 0; i < usernames.length; i++) {
+     var user = usernames[i];
+     $.getJSON('https://wind-bow.gomix.me/twitch-api/streams/'+usernames[i]+'?callback=?', function(data) {
       if(data['error']){
         var message = data['message'];
         $('#link').prepend('<div><p>'+message+'</p></div>');
@@ -30,7 +29,7 @@ $(document).ready(function(){
       }
     }).fail(function() {
       $('#link').prepend('<div><p>Account doesn\'t exist');
-    });
+     });
   }
 })
 

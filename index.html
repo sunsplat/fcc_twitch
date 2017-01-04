@@ -3,16 +3,19 @@
 <head>
   <title>Twitch TV Viewer</title>
   <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-  <!--<script src="https://gist.github.com/QuincyLarson/2ff6892f948d0b7118a99264fd9c1ce8.js"></script>-->
   <script src="twitchAPI.js"></script>
   <script src="index.js"></script>
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="index.css" rel="stylesheet" type="text/css">
 </head>
   <body>
-    <h1>Twitch TV</h1>
-    <p>List of Twitch TV Peeps</p>
-    <p>
+    <div class="jumbotron">
+      <h1>Twitch TV</h1>
+      <p>List of Twitch TV Peeps</p>
+    </div>
+    <div class="users">
       <div id="status"></div>
-    <div id="link"></div></p>
+      <div id="link"></div>
+    </div>
   </body>
 </html>
