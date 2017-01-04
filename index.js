@@ -34,7 +34,7 @@ $(document).ready(function(){
 })
 
 function displayOnlineUsers() {
-  
+
 }
  /*{stream: null,
   _links:
