@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  var usernames = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "noobs2ninjas", "RobotCaleb", "brunofin", "comster404"];
+  var usernames = ["solasce", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "boris_chantel", "RobotCaleb", "brunofin", "comster404"];
   for (var i = 0; i < usernames.length; i++) {
      var user = usernames[i];
      $.getJSON('https://wind-bow.gomix.me/twitch-api/streams/'+usernames[i]+'?callback=?', function(data) {
@@ -16,7 +16,7 @@ $(document).ready(function(){
         console.log('status: ' + status);
         console.log('user: ' + user);
         if (status == null) {
-          $('#link').prepend('<div><p>Offline</p>'+channelName+'</div><hr />');
+          $('#link').prepend('<div><p class="offline">Offline</p>'+channelName+'</div><hr />');
         }
         else{
           var link = status.channel.url;
@@ -24,7 +24,7 @@ $(document).ready(function(){
           var game = status.game;
           var viewers = status.viewers;
 
-          $('#link').prepend('<div><p>Online<br /><a href="'+link+'" target="_blank">'+name+'</a><br />What\'s streaming: '+game+'<br /> Number of viewers: '+viewers+'</p></div>');
+          $('#link').prepend('<div><p class="online">Online</p><p><a href="'+link+'" target="_blank">'+name+'</a><br />What\'s streaming: '+game+'<br /> Number of viewers: '+viewers+'</p></div>');
         }
       }
     }).fail(function() {
@@ -33,6 +33,9 @@ $(document).ready(function(){
   }
 })
 
+function displayOnlineUsers() {
+  
+}
  /*{stream: null,
   _links:
     {self: "https://api.twitch.tv/kraken/streams/freecodecamp", channel: "https://api.twitch.tv/kraken/channels/freecodecamp"}}*/
