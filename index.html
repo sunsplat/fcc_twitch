@@ -14,9 +14,9 @@
       <p>Follow your favorite Twitch channels</p>
     </div>
     <div class="navbar">
-      <input type="button" value="ALL">
-      <input class="online" type="button" value="Online">
-      <input class="offline" type="button" value="Offline">
+      <input class="btn-all" onclick="displayAllUsers();" type="button" value="ALL">
+      <input class="btn-online" type="button" value="Online" onclick="displayOnlineUsers();">
+      <input class="btn-offline" type="button" value="Offline" onclick="displayOfflineUsers();">
     </div>
     <div class="users">
       <div id="status"></div>

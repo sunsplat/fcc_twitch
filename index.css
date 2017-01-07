@@ -6,9 +6,9 @@
   background-color: #6441a4;
   color: #fff;
 }
-.offline {
+.red {
   color: red;
 }
-.online {
+.green {
   color: green;
 }
