@@ -6,9 +6,13 @@
   background-color: #6441a4;
   color: #fff;
 }
-.red {
-  color: red;
+
+<style>
+.demo-card-square.mdl-card {
+  width: 320px;
+  height: 320px;
 }
-.green {
-  color: green;
+.demo-card-square > .mdl-card__title {
+  color: #fff;
+  background: bottom right 15% no-repeat #46B6AC;
 }
