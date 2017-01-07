@@ -66,11 +66,11 @@ window.onload = function() {
           var link = "https://www.twitch.tv/"+channelName;
           if (status === null) {
             success(channelName);
-            makeChild.innerHTML = '<div class="offline all"><div  class="demo-card-square mdl-card mdl-shadow--2dp"><div class="mdl-card__title mdl-card--expand"><h2 class="mdl-card__title-text">'+channelName+'</h2></div><div class="mdl-card__supporting-text">This channel is currently not streaming.</div><div class="mdl-card__actions mdl-card--border"><a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"  href="'+link+'">'+channelName+'</a></div></div>';
+            makeChild.innerHTML = '<div class="offline all"><div  class="demo-card-square mdl-card mdl-shadow--2dp"><div class="mdl-card__title mdl-card--expand"><h2 class="mdl-card__title-text">'+channelName+'</h2></div><div class="mdl-card__supporting-text">This channel is currently not streaming.</div><div class="mdl-card__actions mdl-card--border"><a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"  href="'+link+'" target="_blank">'+channelName+'</a></div></div>';
           } else {
             var logo = data.stream.channel.logo;
             var channelStatus = data.stream.channel.status;
-            makeChild.innerHTML = '<div class="online all"><div  class="demo-card-square mdl-card mdl-shadow--2dp"><div class="mdl-card__title mdl-card--expand" id="'+channelName+'"><h2 class="mdl-card__title-text">'+channelName+'</h2></div><div class="mdl-card__supporting-text">'+channelStatus+'</div><div class="mdl-card__actions mdl-card--border"><a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"  href="'+link+'">'+channelName+'</a></div></div>';
+            makeChild.innerHTML = '<div class="online all"><div  class="demo-card-square mdl-card mdl-shadow--2dp"><div class="mdl-card__title mdl-card--expand" id="'+channelName+'"><h2 class="mdl-card__title-text">'+channelName+'</h2></div><div class="mdl-card__supporting-text">'+channelStatus+'</div><div class="mdl-card__actions mdl-card--border"><a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"  href="'+link+'" target="_blank">'+channelName+'</a></div></div>';
             //changeBgImageOfCard(channelName, logo);
           }
           divItem.appendChild(makeChild);
