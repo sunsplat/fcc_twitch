@@ -71,9 +71,7 @@ window.onload = function() {
             var logo = data.stream.channel.logo;
             var channelStatus = data.stream.channel.status;
             console.log(channelStatus);
-            makeChild.innerHTML = '<li class="online all mdl-list__item mdl-list__item--three-line"><span  class="mdl-list__item-primary-content"><i class="material-icons mdl-list__item-avatar">person</i><span><a href="'+link+'" target="_blank">'+channelName+'</a></span><span class="mdl-list__item-text-body">'+channelStatus+'</span></span><span class="mdl-list__item-secondary-content"><a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">wifi_tethering</i></a></span></li>';
-            // makeChild.innerHTML = '<li class="online all mdl-list__item mdl-list__item--three-line"><span  class="mdl-list__item-primary-content"><i class="material-icons mdl-list__item-avatar"><img src="'+logo+'" class="avatar"></i><span><a href="'+link+'" target="_blank">'+channelName+'</a></span><span  class="mdl-list__item-text-body">'+channelStatus+'</span></span><span class="mdl-list__item-secondary-content"><a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">wifi_tether</i></a></span></li>';
-            //changeBgImageOfCard(channelName, logo);
+            makeChild.innerHTML = '<li class="online all mdl-list__item mdl-list__item--three-line"><span  class="mdl-list__item-primary-content"><img src="'+logo+'" class="material-icons mdl-list__item-avatar"><span><a href="'+link+'" target="_blank">'+channelName+'</a></span><span class="mdl-list__item-text-body">'+channelStatus+'</span></span><span class="mdl-list__item-secondary-content"><a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">wifi_tethering</i></a></span></li>';
           }
           divItem.appendChild(makeChild);
 
