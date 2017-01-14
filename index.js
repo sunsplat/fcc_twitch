@@ -66,11 +66,13 @@ window.onload = function() {
           var link = "https://www.twitch.tv/"+channelName;
           if (status === null) {
             success(channelName);
-            makeChild.innerHTML = '<div class="offline all"><div  class="demo-card-square mdl-card mdl-shadow--2dp"><div class="mdl-card__title mdl-card--expand"><h2 class="mdl-card__title-text">'+channelName+'</h2></div><div class="mdl-card__supporting-text">This channel is currently not streaming.</div><div class="mdl-card__actions mdl-card--border"><a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"  href="'+link+'" target="_blank">'+channelName+'</a></div></div>';
+            makeChild.innerHTML = '<li class="offline all mdl-list__item mdl-list__item--three-line"><span  class="mdl-list__item-primary-content"><i class="material-icons mdl-list__item-avatar">person</i><span><a href="'+link+'" target="_blank">'+channelName+'</a></span><span class="mdl-list__item-text-body">This channel is currently not streaming.</span></span><span class="mdl-list__item-secondary-content"><a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">portable_wifi_off</i></a></span></li>';
           } else {
             var logo = data.stream.channel.logo;
             var channelStatus = data.stream.channel.status;
-            makeChild.innerHTML = '<div class="online all"><div  class="demo-card-square mdl-card mdl-shadow--2dp"><div class="mdl-card__title mdl-card--expand" id="'+channelName+'"><h2 class="mdl-card__title-text">'+channelName+'</h2></div><div class="mdl-card__supporting-text">'+channelStatus+'</div><div class="mdl-card__actions mdl-card--border"><a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"  href="'+link+'" target="_blank">'+channelName+'</a></div></div>';
+            console.log(channelStatus);
+            makeChild.innerHTML = '<li class="online all mdl-list__item mdl-list__item--three-line"><span  class="mdl-list__item-primary-content"><i class="material-icons mdl-list__item-avatar">person</i><span><a href="'+link+'" target="_blank">'+channelName+'</a></span><span class="mdl-list__item-text-body">'+channelStatus+'</span></span><span class="mdl-list__item-secondary-content"><a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">wifi_tethering</i></a></span></li>';
+            // makeChild.innerHTML = '<li class="online all mdl-list__item mdl-list__item--three-line"><span  class="mdl-list__item-primary-content"><i class="material-icons mdl-list__item-avatar"><img src="'+logo+'" class="avatar"></i><span><a href="'+link+'" target="_blank">'+channelName+'</a></span><span  class="mdl-list__item-text-body">'+channelStatus+'</span></span><span class="mdl-list__item-secondary-content"><a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">wifi_tether</i></a></span></li>';
             //changeBgImageOfCard(channelName, logo);
           }
           divItem.appendChild(makeChild);

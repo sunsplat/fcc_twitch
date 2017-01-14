@@ -1,5 +1,5 @@
-*{
-  margin: 20px;
+body {
+  margin: 0 10%;
 }
 .jumbotron {
   padding: 20px;
@@ -14,4 +14,10 @@
 .demo-card-square > .mdl-card__title {
   color: #fff;
   background: bottom right 15% no-repeat #46B6AC;
+}
+
+.avatar {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
 }
