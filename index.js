@@ -33,7 +33,7 @@ function changeBgImageOfCard(channelName, logoUrl) {
 }
 
 window.onload = function() {
-  var channels = ["ESL_DOTA2", "cretetion", "freecodecamp", "gamenewton", "scarra", "Doublelift", "adobe", "seebotschat"];
+  var channels = ["ESL_DOTA2", "cretetion", "freecodecamp", "gamenewton", "scarra", "Doublelift", "adobe", "seebotschat", "comster404"];
   var divItem = document.getElementById("status");
 
   function makeHttpObject() {
@@ -55,34 +55,36 @@ window.onload = function() {
     request.onreadystatechange = function() {
       if (request.readyState == 4) {
         if (request.status == 200) {
-          //handleRequest(request);
           var data = request.response;
-          success(data);
-          var status = data.stream;
-          var apiLink = data._links.channel;
           var makeChild = document.createElement('div');
-          var splitLink = apiLink.split('/');
+          var splitLink = url.split('/');
           var channelName = splitLink[5];
           var link = "https://www.twitch.tv/"+channelName;
-          if (status === null) {
-            success(channelName);
-            makeChild.innerHTML = '<li class="offline all mdl-list__item mdl-list__item--three-line"><span  class="mdl-list__item-primary-content"><i class="material-icons mdl-list__item-avatar">person</i><span><a href="'+link+'" target="_blank">'+channelName+'</a></span><span class="mdl-list__item-text-body">This channel is currently not streaming.</span></span><span class="mdl-list__item-secondary-content"><a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">portable_wifi_off</i></a></span></li>';
+          if (data.error) {
+            makeChild.innerHTML = '<li class="offline all mdl-list__item mdl-list__item--three-line"><span  class="mdl-list__item-primary-content"><i class="material-icons mdl-list__item-avatar">person</i><span>'+channelName+'</span><span class="mdl-list__item-text-body">This channel has been deleted.</span></span><span class="mdl-list__item-secondary-content"><i class="material-icons">portable_wifi_off</i></span></li>';
           } else {
-            var logo = data.stream.channel.logo;
-            var channelStatus = data.stream.channel.status;
-            console.log(channelStatus);
-            makeChild.innerHTML = '<li class="online all mdl-list__item mdl-list__item--three-line"><span  class="mdl-list__item-primary-content"><img src="'+logo+'" class="material-icons mdl-list__item-avatar"><span><a href="'+link+'" target="_blank">'+channelName+'</a></span><span class="mdl-list__item-text-body">'+channelStatus+'</span></span><span class="mdl-list__item-secondary-content"><a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">wifi_tethering</i></a></span></li>';
+            var status = data.stream;
+            var apiLink = data._links.channel;
+            if (status === null) {
+              success(channelName);
+              makeChild.innerHTML = '<li class="offline all mdl-list__item mdl-list__item--three-line"><span  class="mdl-list__item-primary-content"><i class="material-icons mdl-list__item-avatar">person</i><span><a href="'+link+'" target="_blank">'+channelName+'</a></span><span class="mdl-list__item-text-body">This channel is currently not streaming.</span></span><span class="mdl-list__item-secondary-content"><i class="material-icons">portable_wifi_off</i></span></li>';
+            } else {
+              var logo = data.stream.channel.logo;
+              var channelStatus = data.stream.channel.status;
+              makeChild.innerHTML = '<li class="online all mdl-list__item mdl-list__item--three-line"><span  class="mdl-list__item-primary-content"><img src="'+logo+'" class="material-icons mdl-list__item-avatar"><span><a href="'+link+'" target="_blank">'+channelName+'</a></span><span class="mdl-list__item-text-body">'+channelStatus+'</span></span><span class="mdl-list__item-secondary-content"><i class="material-icons">wifi_tethering</i></span></li>';
+            }
           }
           divItem.appendChild(makeChild);
 
-        } else if (failure)
+        } else if (failure) {
           failure(request.status, request.statusText);
+        }
       }
     };
   }
 
   for (var i = 0; i < channels.length; i++) {
-    simpleHttpRequest("https://wind-bow.gomix.me/twitch-api/streams/"+channels[i], console.log);
+    simpleHttpRequest("https://wind-bow.gomix.me/twitch-api/streams/"+channels[i], console.log, console.log);
   }
 
   function handleRequest(request) {
