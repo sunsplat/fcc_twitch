@@ -1,6 +1,12 @@
 .demo-list-three {
-  width: 70%;
+  width: 40%;
   margin: auto;
+}
+@media only screen and (max-width: 768px) {
+  .demo-list-three {
+    width: 70%;
+    margin: auto;
+  }
 }
 
 .jumbotron {
