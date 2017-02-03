@@ -1,5 +1,5 @@
 .demo-list-three {
-  width: 90%;
+  width: 70%;
   margin: auto;
 }
 
@@ -9,21 +9,26 @@
   color: #fff;
 }
 
-.demo-card-square.mdl-card {
-  width: 320px;
-  height: 320px;
-}
-.demo-card-square > .mdl-card__title {
-  color: #fff;
-  background: bottom right 15% no-repeat #46B6AC;
-}
-
 .avatar {
   height: 40px;
   width: 40px;
   border-radius: 50%;
 }
 
-i {
+.material-icons.md-active {
   color: rgb(255,64,129);
+}
+
+.material-icons.md-inactive {
+  color: rgba(0,0,0,.54);
+}
+
+.mdl-list__item--three-line .mdl-list__item-secondary-content {
+  display: inline-block;
+  float: right;
+}
+
+.mdl-list__item--three-line .mdl-list__item-primary-content {
+    display: inline-block;
+    width: 90%;
 }

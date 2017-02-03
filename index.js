@@ -61,17 +61,17 @@ window.onload = function() {
           var channelName = splitLink[5];
           var link = "https://www.twitch.tv/"+channelName;
           if (data.error) {
-            makeChild.innerHTML = '<li class="offline all mdl-list__item mdl-list__item--three-line"><span  class="mdl-list__item-primary-content"><i class="material-icons mdl-list__item-avatar">person</i><span>'+channelName+'</span><span class="mdl-list__item-text-body">This channel has been deleted.</span></span><span class="mdl-list__item-secondary-content"><i class="material-icons">portable_wifi_off</i></span></li>';
+            makeChild.innerHTML = '<li class="offline all mdl-list__item mdl-list__item--three-line"><span  class="mdl-list__item-primary-content"><i class="material-icons mdl-list__item-avatar">person</i><span>'+channelName+'</span><span class="mdl-list__item-text-body">This channel has been deleted.</span></span><span class="mdl-list__item-secondary-content"><i class="material-icons  md-inactive">portable_wifi_off</i></span></li>';
           } else {
             var status = data.stream;
             var apiLink = data._links.channel;
             if (status === null) {
               success(channelName);
-              makeChild.innerHTML = '<li class="offline all mdl-list__item mdl-list__item--three-line"><span  class="mdl-list__item-primary-content"><i class="material-icons mdl-list__item-avatar">person</i><span><a href="'+link+'" target="_blank">'+channelName+'</a></span><span class="mdl-list__item-text-body">This channel is currently not streaming.</span></span><span class="mdl-list__item-secondary-content"><i class="material-icons">portable_wifi_off</i></span></li>';
+              makeChild.innerHTML = '<li class="offline all mdl-list__item mdl-list__item--three-line"><span  class="mdl-list__item-primary-content"><i class="material-icons mdl-list__item-avatar">person</i><span><a href="'+link+'" target="_blank">'+channelName+'</a></span><span class="mdl-list__item-text-body">This channel is currently not streaming.</span></span><span class="mdl-list__item-secondary-content"><i class="material-icons md-inactive">portable_wifi_off</i></span></li>';
             } else {
               var logo = data.stream.channel.logo;
               var channelStatus = data.stream.channel.status;
-              makeChild.innerHTML = '<li class="online all mdl-list__item mdl-list__item--three-line"><span  class="mdl-list__item-primary-content"><img src="'+logo+'" class="material-icons mdl-list__item-avatar"><span><a href="'+link+'" target="_blank">'+channelName+'</a></span><span class="mdl-list__item-text-body">'+channelStatus+'</span></span><span class="mdl-list__item-secondary-content"><i class="material-icons">wifi_tethering</i></span></li>';
+              makeChild.innerHTML = '<li class="online all mdl-list__item mdl-list__item--three-line"><span  class="mdl-list__item-primary-content"><img src="'+logo+'" class="material-icons mdl-list__item-avatar"><span><a href="'+link+'" target="_blank">'+channelName+'</a></span><span class="mdl-list__item-text-body">'+channelStatus+'</span></span><span class="mdl-list__item-secondary-content"><i class="material-icons md-active">wifi_tethering</i></span></li>';
             }
           }
           divItem.appendChild(makeChild);
